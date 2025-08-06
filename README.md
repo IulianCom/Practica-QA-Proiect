@@ -1,1 +1,2 @@
 # Practica-QA-Proiect
+QA
