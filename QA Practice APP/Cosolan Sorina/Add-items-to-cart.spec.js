@@ -1,6 +1,16 @@
-import { test, expect } from '@playwright/test';
+import { test, expect,chromium } from '@playwright/test';
 
-test('test', async ({ page }) => {
-  await page.goto('https://www.orangehrm.com/');
-  await page.getByRole('button', { name: 'Start Your 30 Day Free Trial' }).click();
+test('test', async ({  }) => {
+    const browser = await chromium.launch();
+      const context = await browser.newContext();
+      const page = await context.newPage();
+  await page.goto('https://qa-practice.netlify.app/');
+  await page.getByRole('link', { name: 'Ecommerce - Login, Add to' }).click();
+  await page.getByRole('textbox', { name: 'Email' }).click();
+  await page.getByRole('textbox', { name: 'Email' }).fill('admin@admin.com');
+  await page.getByRole('textbox', { name: 'Password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).fill('admin123');
+  await page.getByRole('button', { name: 'Submit' }).click();
+  await page.getByRole('button', { name: 'ADD TO CART' }).first().click();
+  await page.getByRole('spinbutton').fill('13');
 });
