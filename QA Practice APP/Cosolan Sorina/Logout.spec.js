@@ -1,9 +1,9 @@
 import { test, expect,chromium } from '@playwright/test';
 
-test('test', async ({  }) => {
-    const browser = await chromium.launch();
-      const context = await browser.newContext();
-      const page = await context.newPage();
+test('test', async ({ }) => {
+const browser = await chromium.launch();
+  const context = await browser.newContext();
+  const page = await context.newPage();
   await page.goto('https://qa-practice.netlify.app/');
   await page.getByRole('link', { name: 'Ecommerce - Login, Add to' }).click();
   await page.getByRole('textbox', { name: 'Email' }).click();
@@ -11,6 +11,5 @@ test('test', async ({  }) => {
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill('admin123');
   await page.getByRole('button', { name: 'Submit' }).click();
-  await page.getByRole('button', { name: 'ADD TO CART' }).first().click();
-  await page.getByRole('spinbutton').fill('13');
+  await page.getByRole('link', { name: 'Log Out' }).click();
 });
