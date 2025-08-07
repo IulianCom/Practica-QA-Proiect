@@ -3,7 +3,7 @@ import { Navigation } from './Functii/Util/navigation';
 import { Assertions } from './Functii/Util/assertions';
 import { Login } from './Functii/Login/login';
 
-test('test', async ({ page }) => {
+test('Successful-login', async ({ page }) => {
   // Navigation
   await Navigation.goToLoginPage(page);
   
