@@ -14,6 +14,8 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
+  /* Include API tests from QA Practice APP folder */
+  testMatch: ['**/tests/**/*.spec.js', '**/QA Practice APP/**/*.spec.js', '**/*Testing*.spec.js'],
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
