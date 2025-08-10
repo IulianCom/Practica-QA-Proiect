@@ -11,5 +11,7 @@ const browser = await chromium.launch();
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill('admin123');
   await page.getByRole('button', { name: 'Submit' }).click();
+  await expect(page.locator('#prooood')).toContainText('SHOPPING CART');
   await page.getByRole('link', { name: 'Log Out' }).click();
+  await expect(page.locator('#loginSection')).toContainText('Login - Shop');
 });
