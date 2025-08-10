@@ -3,7 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "test:api": "npx playwright test API-Testing-Website.spec.js",
+    "test:api:headed": "npx playwright test API-Testing-Website.spec.js --headed",
+    "test:api:debug": "npx playwright test API-Testing-Website.spec.js --debug",
+    "docker:start": "docker run -d --rm --name qa-practice-api -p8887:8081 rvancea/qa-practice-api:latest",
+    "docker:stop": "docker stop qa-practice-api",
+    "docker:logs": "docker logs qa-practice-api",
+    "docker:compose:up": "docker-compose up -d",
+    "docker:compose:down": "docker-compose down",
+    "swagger:open": "start http://localhost:8887/swagger-ui.html",
+    "api:health": "curl http://localhost:8887/actuator/health"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IulianCom/Practica-QA-Proiect.git"

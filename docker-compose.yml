@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  qa-practice-api:
+    image: rvancea/qa-practice-api:latest
+    container_name: qa-practice-api
+    ports:
+      - "8887:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+    restart: unless-stopped
+    networks:
+      - qa-practice-network
+
+networks:
+  qa-practice-network:
+    driver: bridge
+
+# Pentru a porni: docker-compose up -d
+# Pentru a opri: docker-compose down
+# Pentru logs: docker-compose logs -f qa-practice-api
